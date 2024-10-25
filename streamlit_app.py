@@ -56,10 +56,11 @@ if ingredients_list:
     if time_to_insert:
         session.sql(my_insert_stmt, [name_on_order]).collect()
         st.success(f'Your Smoothie is ordered, {name_on_order}!', icon="✅")
-
+        
+#New section to display fruityvice nutrition information
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response)
+st.text(fruityvice_response.json())
 
 # # Get the current credentials
 # session = get_active_session()
